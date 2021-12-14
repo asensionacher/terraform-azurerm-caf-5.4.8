@@ -25,7 +25,7 @@ resource "azurerm_function_app" "function_app" {
   storage_account_name       = var.storage_account_name
   storage_account_access_key = var.storage_account_access_key
   tags                       = local.tags
-
+  version = lookup(var.settings, "version", "~1")
   app_settings = local.app_settings
 
   dynamic "auth_settings" {
@@ -107,8 +107,8 @@ resource "azurerm_function_app" "function_app" {
     for_each = try(var.identity, null) == null ? [] : [1]
 
     content {
-      type         = "UserAssigned"
-      identity_ids = local.managed_identities
+      type         = var.identity.type
+      identity_ids = lower(var.identity.type) == "userassigned" ? local.managed_identities : null
     }
   }
 
