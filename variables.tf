@@ -277,11 +277,6 @@ variable "diagnostic_storage_accounts" {
   default     = {}
 }
 
-variable "function_apps" {
-  description = "Configuration object - Function app resources"
-  default     = {}
-}
-
 # Shared services
 variable "shared_services" {
   description = "Configuration object - Shared services resources"
