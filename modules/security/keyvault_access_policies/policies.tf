@@ -236,6 +236,6 @@ module "function_apps" {
   )
 
   access_policy = each.value
-  tenant_id     = var.resources.app_service[try(each.value.lz_key, var.client_config.landingzone_key)][each.value.function_app_key].identity.0.tenant_id
-  object_id     = var.resources.app_service[try(each.value.lz_key, var.client_config.landingzone_key)][each.value.function_app_key].identity.0.principal_id
+  tenant_id     = var.resources.function_apps[try(each.value.lz_key, var.client_config.landingzone_key)][each.value.function_app_key].identity.0.tenant_id
+  object_id     = var.resources.function_apps[try(each.value.lz_key, var.client_config.landingzone_key)][each.value.function_app_key].identity.0.principal_id
 }
