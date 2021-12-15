@@ -221,7 +221,7 @@ module "diagnostic_storage_accounts" {
   object_id     = var.resources.diagnostic_storage_accounts[try(each.value.lz_key, var.client_config.landingzone_key)][each.value.diagnostic_storage_account_key].identity.0.principal_id
 }
 
-module "function_apps_access_policy " {
+module "function_apps_access_policy" {
   source = "./access_policy"
   for_each = {
     for key, access_policy in var.access_policies : key => access_policy
