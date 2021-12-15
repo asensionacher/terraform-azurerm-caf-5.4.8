@@ -277,7 +277,7 @@ variable "diagnostic_storage_accounts" {
   default     = {}
 }
 
-variable "function_apps_access_policy" {
+variable "function_apps" {
   description = "Configuration object - Function app resources"
   default     = {}
 }
