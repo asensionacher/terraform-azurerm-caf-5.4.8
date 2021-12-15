@@ -36,7 +36,7 @@ module "keyvault_access_policies" {
     storage_accounts                  = local.combined_objects_storage_accounts
     diagnostic_storage_accounts       = local.combined_objects_diagnostic_storage_accounts
     azuread_service_principals        = local.combined_objects_azuread_service_principals
-    function_apps                     = local.combined_objects_function_apps
+    function_apps_access_policy       = local.combined_objects_function_apps_access_policy    
   }
 }
 
